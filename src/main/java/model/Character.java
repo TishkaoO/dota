@@ -5,19 +5,10 @@ public class Character {
     private int id;
     private String name;
     private Position positionChar;
-//    private RoleGame roleGameChar;
-
-//    public Character(int id, String name, Position positionChar) {
-//        this.id = id;
-//        this.name = name;
-//        this.positionChar = positionChar;
-//        this.roleGameChar = roleGameChar;
-//    }
 
     public Character(String name, Position positionChar) {
         this.name = name;
         this.positionChar = positionChar;
-//        this.roleGameChar = roleGameChar;
     }
 
     public Character(int id, String name, Position positionChar) {
@@ -58,13 +49,6 @@ public class Character {
         this.positionChar = positionChar;
     }
 
-//    public RoleGame getRoleGameChar() {
-//        return roleGameChar;
-//    }
-//
-//    public void setRoleGameChar(RoleGame roleGameChar) {
-//        this.roleGameChar = roleGameChar;
-//    }
 
     @Override
     public String toString() {
