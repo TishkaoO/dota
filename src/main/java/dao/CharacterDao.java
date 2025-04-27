@@ -14,7 +14,8 @@ public interface CharacterDao {
     List<Character> findCharactersByPositionId(int positionId);
 
     List<Character> findCharactersByPosition(String name);
-
+    Character findCharacterByNameWd(String name);
+    List<Character> findCharactersDeleteByPosition(String namePosition);
 
 }
 
