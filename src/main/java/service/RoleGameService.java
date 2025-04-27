@@ -1,7 +1,5 @@
 package service;
 
-//import model.RoleGame;
-
 import java.util.List;
 
 public interface RoleGameService {

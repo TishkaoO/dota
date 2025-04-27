@@ -1,7 +1,5 @@
 package dao.impl;
 
-//import dao.RoleGameDao;
-//import model.RoleGame;
 
 import java.util.ArrayList;
 import java.util.List;

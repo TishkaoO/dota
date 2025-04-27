@@ -3,7 +3,7 @@ package dao.impl;
 import dao.CharacterDao;
 import model.Character;
 import model.Position;
-//import model.RoleGame;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class CharacterDaoImpl implements CharacterDao {
     public boolean saveCharacterDraft(String positionName) {//не знаю как прорверить, мне кажется, что я уже ничего не понимаю!!!
             List<Character> foundCharacters = findCharactersByPosition(positionName);
             List<Character> savedCharacters = new ArrayList<>();
-            if (!foundCharacters.isEmpty()) { // Проверяем, есть ли найденные персонажи
+            if (!foundCharacters.isEmpty() && foundCharacters != null) { // Проверяем, есть ли найденные персонажи
                 Character characterToSave = foundCharacters.get(1); // Берем первого найденного
                 if (!savedCharacters.contains(characterToSave)) { // Проверяем, не сохранен ли он уже
                     savedCharacters.add(characterToSave);// Сохраняем персонажа
@@ -54,7 +54,7 @@ public class CharacterDaoImpl implements CharacterDao {
             if (name.equals(character.getName())) {
                 System.out.println("Имя найденного персонажа: ");
                 System.out.println(character.getId() + "   " + name);
-                break;
+                return character;
             } else {
                 System.out.println("Персонажа с таким именем не существует. Выберите другое имя");
             }

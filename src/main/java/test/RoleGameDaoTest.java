@@ -1,8 +1,5 @@
 package test;
 
-//import dao.RoleGameDao;
-//import dao.impl.RoleGameDaoImpl;
-//import model.RoleGame;
 import java.util.List;
 
 public class RoleGameDaoTest {
