@@ -25,6 +25,7 @@ public class CharacterDaoImpl implements CharacterDao {
         characterList.add(new Character(8, "Ancient Apparition", new Position(4, "Support")));
         characterList.add(new Character(9, "Crystal Maiden", new Position(5, "Line Support")));
         characterList.add(new Character(10, "Witch Doctor", new Position(5, "Line Support")));
+        characterList.add(new Character(11, "Witch Doctor", new Position(6, "123")));
 
     }
 
@@ -101,6 +102,43 @@ public class CharacterDaoImpl implements CharacterDao {
         }
         return actualCharacter; // Возвращаем список найденных персонажей
     }
+
+    //написать метод, который будет из списака персонажей доставать вд с позицией 123
+    @Override
+    public Character findCharacterByNameWd(String name) {
+        for (Character character : characterList){
+            String characterName = character.getName();
+            Position position = character.getPositionChar();
+            String characterPositionName = position.getName();
+            if (characterName.equals(name) && characterPositionName.equals("123")){
+                return character;
+            }
+        }
+        System.out.println("Мы не нашли вашего персонажа :(");
+        return null;
+        }
+
+
+        // переименовать имя позиции на 123, но если позиция 123 уже есть то удаляем этого персонажа
+    // из списка и возвращаем остальное
+    @Override
+    public List<Character> findCharactersDeleteByPosition(String namePosition) {
+        List<Character> actualListCharacter = new ArrayList<>();
+        for (Character character : characterList){
+            Position position = character.getPositionChar();
+            String charPosition = position.getName();
+            if (charPosition.equals(namePosition)){
+                continue;
+            } else {
+                position.setName("123");
+                actualListCharacter.add(character);
+            }
+        }
+        return actualListCharacter;
+    }
 }
+
+
+
 
 

@@ -15,6 +15,9 @@ public class CharatacterDaoTest {
         //findCharactersByPositionIdTest();
         //findCharactersByPositionTest();
         //saveCharacterDraftTest();
+        //findCharacterByNameWdTest();
+        findCharactersDeleteByPositionTest();
+
     }
 
     public static void findAllCharacterTest(){
@@ -49,5 +52,15 @@ public class CharatacterDaoTest {
         characterDao.saveCharacterDraft("Mid");
     }
 
+    public static void findCharacterByNameWdTest(){
+        CharacterDao characterDao = new CharacterDaoImpl();
+        Character character = characterDao.findCharacterByNameWd("Doctor");
+        System.out.println(character);
+    }
 
+    public static void findCharactersDeleteByPositionTest(){
+        CharacterDao characterDao = new CharacterDaoImpl();
+        List<Character> character = characterDao.findCharactersDeleteByPosition("123");
+        System.out.println(character);
+    }
 }
