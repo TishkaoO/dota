@@ -6,8 +6,7 @@ import java.util.List;
 
 public interface PositionDao {
 
-    List<Position> getPosition ();
-
-
+    List<Position> findAllPosition ();
+    List <Position> findPositionsLeft ();
 
 }

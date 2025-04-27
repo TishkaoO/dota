@@ -10,7 +10,6 @@ public class Position {
         this.id = id;
         this.name = name;
 //        this.roleGameChar = roleGameChar;
-
     }
 
 //    public Position(String name, RoleGame roleGameChar) {

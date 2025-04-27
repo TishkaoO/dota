@@ -5,19 +5,19 @@ public class Character {
     private int id;
     private String name;
     private Position positionChar;
-    private RoleGame roleGameChar;
+//    private RoleGame roleGameChar;
 
-    public Character(int id, String name, Position positionChar, RoleGame roleGameChar) {
-        this.id = id;
+//    public Character(int id, String name, Position positionChar) {
+//        this.id = id;
+//        this.name = name;
+//        this.positionChar = positionChar;
+//        this.roleGameChar = roleGameChar;
+//    }
+
+    public Character(String name, Position positionChar) {
         this.name = name;
         this.positionChar = positionChar;
-        this.roleGameChar = roleGameChar;
-    }
-
-    public Character(String name, Position positionChar, RoleGame roleGameChar) {
-        this.name = name;
-        this.positionChar = positionChar;
-        this.roleGameChar = roleGameChar;
+//        this.roleGameChar = roleGameChar;
     }
 
     public Character(int id, String name, Position positionChar) {
@@ -58,13 +58,13 @@ public class Character {
         this.positionChar = positionChar;
     }
 
-    public RoleGame getRoleGameChar() {
-        return roleGameChar;
-    }
-
-    public void setRoleGameChar(RoleGame roleGameChar) {
-        this.roleGameChar = roleGameChar;
-    }
+//    public RoleGame getRoleGameChar() {
+//        return roleGameChar;
+//    }
+//
+//    public void setRoleGameChar(RoleGame roleGameChar) {
+//        this.roleGameChar = roleGameChar;
+//    }
 
     @Override
     public String toString() {
@@ -72,7 +72,21 @@ public class Character {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", positionChar=" + positionChar +
-                ", roleGameChar=" + roleGameChar +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Character character = (Character) obj;
+
+        return name != null ? name.equals(character.name) : character.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
 }
