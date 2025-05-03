@@ -9,7 +9,7 @@ public class CharatacterDaoTest {
 
     public static void main(String[] args) {
 
-        //findAllCharacterTest();
+        //findAllCharacterTest()
         //findCharacterByNameTest();
         //findCharacterByIdTest();
         //findCharactersByPositionIdTest();
