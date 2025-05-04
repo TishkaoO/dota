@@ -3,6 +3,7 @@ package test;
 import dao.CharacterDao;
 import dao.impl.CharacterDaoImpl;
 import model.Character;
+
 import java.util.List;
 
 public class CharatacterDaoTest {
@@ -14,53 +15,63 @@ public class CharatacterDaoTest {
         //findCharacterByIdTest();
         //findCharactersByPositionIdTest();
         //findCharactersByPositionTest();
-        //saveCharacterDraftTest();
+        //saveCharDraftTest();
         //findCharacterByNameWdTest();
-        findCharactersDeleteByPositionTest();
+        //findCharactersDeleteByPositionTest();
+        saveCharacterDraftTest();
+        //findCharacterByDraftTest();
 
     }
 
-    public static void findAllCharacterTest(){
+    public static void findAllCharacterTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
-        List <Character> character = characterDao.findAllCharacter();
+        List<Character> character = characterDao.findAllCharacter();
         System.out.println(character);
-}
+    }
 
-    public static void findCharacterByNameTest(){
+    public static void findCharacterByNameTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
         characterDao.findCharacterByName("Phantom Assassin");
     }
 
-    public static void findCharacterByIdTest(){
+    public static void findCharacterByIdTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
         characterDao.findCharacterById(6);
     }
 
-    public static void findCharactersByPositionIdTest(){
+    public static void findCharactersByPositionIdTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
-        characterDao.findCharactersByPositionId(0);
+        List<Character> character = characterDao.findCharactersByPositionId(6);
+        System.out.println(character);
     }
 
-    public static void findCharactersByPositionTest(){
+    public static void findCharactersByPositionTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
         List<Character> character = characterDao.findCharactersByPosition("Core");
         System.out.println(character);
     }
 
-    public static void saveCharacterDraftTest(){
-        CharacterDao characterDao = new CharacterDaoImpl();
-        characterDao.saveCharacterDraft("Mid");
-    }
-
-    public static void findCharacterByNameWdTest(){
+    public static void findCharacterByNameWdTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
         Character character = characterDao.findCharacterByNameWd("Doctor");
         System.out.println(character);
     }
 
-    public static void findCharactersDeleteByPositionTest(){
+    public static void findCharactersDeleteByPositionTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
-        List<Character> character = characterDao.findCharactersDeleteByPosition("123");
+        List<Character> character = characterDao.findCharactersDeleteByPosition("mid");
+        System.out.println(character);
+    }
+
+    public static void saveCharacterDraftTest() {
+        CharacterDao characterDao = new CharacterDaoImpl();
+        boolean character = characterDao.saveCharacterDraft(1);
+        System.out.println(character);
+    }
+
+    public static void findCharacterByDraftTest() {
+        CharacterDao characterDao = new CharacterDaoImpl();
+        List<Character> character = characterDao.findCharacterByDraft();
         System.out.println(character);
     }
 }
