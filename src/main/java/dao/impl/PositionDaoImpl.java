@@ -9,14 +9,14 @@ import java.util.List;
 
 public class PositionDaoImpl implements PositionDao {
 
-    public final List<Position> positionList = new ArrayList<>();
+    private static final List<Position> positionList = new ArrayList<>();
 
     {
-        positionList.add (new Position(1, "Core"));
-        positionList.add (new Position(2, "Mid"));
-        positionList.add (new Position(3, "Hard Line"));
-        positionList.add (new Position(4, "Hard Support"));
-        positionList.add (new Position(5, "Save Support"));
+        positionList.add(new Position(1, "Core", false));
+        positionList.add(new Position(2, "Mid", false));
+        positionList.add(new Position(3, "Hard Line", false));
+        positionList.add(new Position(4, "Hard Support", false));
+        positionList.add(new Position(5, "Save Support", false));
     }
 
     @Override
@@ -24,16 +24,18 @@ public class PositionDaoImpl implements PositionDao {
         return positionList;
     }
 
+    /**
+     * 1. Предоставить список свободных позиций.
+     */
     @Override
-    public List<Position> findPositionsLeft() { // пока не знаю как реализовать!!!
-            List<Position> remainingPositions = new ArrayList<>(positionList);
-            List<Character> characterList = new ArrayList<>();
-            // Удаляем позиции, которые уже были использованы персонажами
-            for (Character character : characterList) {
-                Position position = character.getPositionChar();
-                remainingPositions.remove(position);
+    public List<Position> findPositionFree() {
+        List<Position> actualPositionList = new ArrayList<>();
+        for (Position position : positionList) {
+            boolean isClosePosition = position.isClose();
+            if (!isClosePosition) {
+                actualPositionList.add(position);
             }
-            return remainingPositions; // Возвращаем список оставшихся позиций
         }
+        return actualPositionList;
+    }
 }
-
