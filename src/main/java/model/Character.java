@@ -5,10 +5,13 @@ public class Character {
     private int id;
     private String name;
     private Position positionChar;
+    private int countCharacter = 1;
 
-    public Character(String name, Position positionChar) {
+    public Character(int id, String name, Position positionChar, int countCharacter) {
+        this.id = id;
         this.name = name;
         this.positionChar = positionChar;
+        this.countCharacter = countCharacter;
     }
 
     public Character(int id, String name, Position positionChar) {
@@ -17,9 +20,19 @@ public class Character {
         this.positionChar = positionChar;
     }
 
+
+    public Character(String name, Position positionChar) {
+        this.name = name;
+        this.positionChar = positionChar;
+    }
+
     public Character(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Character(int countCharacter) {
+        this.countCharacter = countCharacter;
     }
 
     public Character() {
@@ -37,6 +50,17 @@ public class Character {
         return name;
     }
 
+    public int getCountCharacter() {
+        return countCharacter;
+    }
+
+    public int setCountCharacter(int countCharacter) {
+        this.countCharacter = countCharacter;
+        for (int i = 1; i < 6; i++) {
+        }
+        return countCharacter;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -49,20 +73,24 @@ public class Character {
         this.positionChar = positionChar;
     }
 
-
     @Override
     public String toString() {
         return "Character{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", positionChar=" + positionChar +
+                ", countCharacter=" + countCharacter +
                 '}';
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
 
         Character character = (Character) obj;
 

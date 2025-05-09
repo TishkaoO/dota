@@ -10,7 +10,8 @@ import java.util.List;
 
 public class CharacterDaoImpl implements CharacterDao {
 
-    final List<Character> characterList = new ArrayList<>();
+    private static final List<Character> characterList = new ArrayList<>();
+    private static final List<Character> seveCharcterList = new ArrayList<>();
 
     private int id = 0;
 
@@ -28,21 +29,6 @@ public class CharacterDaoImpl implements CharacterDao {
         characterList.add(new Character(11, "Witch Doctor", new Position(6, "123")));
 
     }
-
-    @Override
-    public boolean saveCharacterDraft(String positionName) {//не знаю как прорверить, мне кажется, что я уже ничего не понимаю!!!
-            List<Character> foundCharacters = findCharactersByPosition(positionName);
-            List<Character> savedCharacters = new ArrayList<>();
-            if (!foundCharacters.isEmpty() && foundCharacters != null) { // Проверяем, есть ли найденные персонажи
-                Character characterToSave = foundCharacters.get(1); // Берем первого найденного
-                if (!savedCharacters.contains(characterToSave)) { // Проверяем, не сохранен ли он уже
-                    savedCharacters.add(characterToSave);// Сохраняем персонажа
-                    System.out.println("Персонаж успешно добавлен в драфт: " + savedCharacters);
-                    return true; // Успешно сохранено
-                }
-            }
-            return false; // Не удалось сохранить (персонаж уже сохранен или не найден)
-        }
 
     @Override
     public List<Character> findAllCharacter() {
@@ -76,15 +62,14 @@ public class CharacterDaoImpl implements CharacterDao {
         return null;
     }
 
+    //2. Найти персонажей по айди позиции.
     @Override
-    public List<Character> findCharactersByPositionId(int positionId) {// не работает + не понимаю метод Тишка писал
+    public List<Character> findCharactersByPositionId(int positionId) {
         List<Character> actualCharacters = new ArrayList<>();
         for (Character character : characterList) {
             Position position = character.getPositionChar();
-//           RoleGame roleGame = character.getRoleGameChar();
-//           int idRolegame = roleGame.getId();
             int idPosition = position.getId();
-            if (idPosition == positionId) {
+            if (character != null && !characterList.isEmpty() && idPosition == positionId){
                 actualCharacters.add(character);
             }
         }
@@ -106,28 +91,27 @@ public class CharacterDaoImpl implements CharacterDao {
     //написать метод, который будет из списака персонажей доставать вд с позицией 123
     @Override
     public Character findCharacterByNameWd(String name) {
-        for (Character character : characterList){
+        for (Character character : characterList) {
             String characterName = character.getName();
             Position position = character.getPositionChar();
             String characterPositionName = position.getName();
-            if (characterName.equals(name) && characterPositionName.equals("123")){
+            if (characterName.equals(name) && characterPositionName.equals("123")) {
                 return character;
             }
         }
         System.out.println("Мы не нашли вашего персонажа :(");
         return null;
-        }
+    }
 
-
-        // переименовать имя позиции на 123, но если позиция 123 уже есть то удаляем этого персонажа
+    // переименовать имя позиции на 123, но если позиция 123 уже есть то удаляем этого персонажа
     // из списка и возвращаем остальное
     @Override
     public List<Character> findCharactersDeleteByPosition(String namePosition) {
         List<Character> actualListCharacter = new ArrayList<>();
-        for (Character character : characterList){
+        for (Character character : characterList) {
             Position position = character.getPositionChar();
             String charPosition = position.getName();
-            if (charPosition.equals(namePosition)){
+            if (charPosition.equalsIgnoreCase(namePosition)) {
                 continue;
             } else {
                 position.setName("123");
@@ -136,9 +120,37 @@ public class CharacterDaoImpl implements CharacterDao {
         }
         return actualListCharacter;
     }
+
+    //4. Показать список персонажей в сформированном драфте.
+    @Override
+    public List<Character> findCharacterByDraft() {
+        return seveCharcterList;
+    }
+
+    //3. Cохранить персонажа в драфт.
+    @Override
+    public boolean saveCharacterDraft(int idChar) {
+        for (Character character : characterList) {
+            int characters = character.getId();
+            int countChar = character.setCountCharacter(5);
+            // Проверяем, совпадает ли ID персонажа с переданным
+            if (character !=null && characters == idChar && countChar < 6) {
+                seveCharcterList.add(character);// Добавляем персонажа в список
+                System.out.println("Добавлен персонаж: " + character);
+            }
+        }
+        // Проверяем, были ли добавлены персонажи
+        if (!seveCharcterList.isEmpty()) {
+            System.out.println("Сохраненные персонажи: " + seveCharcterList);
+            return true; // Если хотя бы один персонаж был добавлен
+        }
+        return false; // Если ни один персонаж не был найден
+    }
 }
 
-
-
-
-
+//выбираем героя в драфт:
+//Ищем по айди персонажа
+//Бежим по списку персонажей
+//И у каждого героя смотрим айди соответствует ли тому айди что передаем, если соответствует то смотрим его позицию занята ли она,
+//Если не занята и размер списка драфта <5 то меняем значение у close в позиции героя на нужное и добавляем героя в список драфта
+// если размер уже равен 5 то сообщение, что добавить нельзя
