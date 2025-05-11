@@ -23,7 +23,7 @@ public interface CharacterDao {
 
     List<Character> findCharacterByDraft();
 
-    boolean saveCharacterDraft(int idChar);
+    boolean saveCharacterDraft(int idCharacter);
 }
 /**1. Предоставить список свободных позиций. findPositionFreeTest();
 2. Найти персонажей по айди позиции. findCharactersByPositionIdTest();

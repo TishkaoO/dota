@@ -44,16 +44,6 @@ public class Position {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Position{"
-                + "id="
-                + id
-                + ", name='"
-                + name
-                + '\''
-                + '}';
-
     public boolean isClose() {
         return close;
     }
@@ -64,10 +54,13 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", close=" + close +
-                '}';
+        return "Position{"
+                + "id=" + id
+                + ", name='"
+                + name
+                + '\''
+                + ", close="
+                + close
+                + '}';
     }
 }

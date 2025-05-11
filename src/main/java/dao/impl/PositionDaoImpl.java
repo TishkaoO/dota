@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PositionDaoImpl implements PositionDao {
 
-    private static final List<Position> positionList = new ArrayList<>();
+    private List<Position> positionList = new ArrayList<>();
 
     {
         positionList.add(new Position(1, "Core", false));

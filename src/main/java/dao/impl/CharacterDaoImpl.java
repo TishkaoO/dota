@@ -6,28 +6,33 @@ import model.Position;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CharacterDaoImpl implements CharacterDao {
 
-    private static final List<Character> characterList = new ArrayList<>();
-    private static final List<Character> seveCharcterList = new ArrayList<>();
+    private List<Character> characterList = new ArrayList<>();
+    private List<Character> seveCharcterList = new ArrayList<>();
 
     private int id = 0;
 
     {
-        characterList.add(new Character(1, "Phantom Assassin", new Position(1, "Core")));
-        characterList.add(new Character(2, "Juggernaut", new Position(1, "Core")));
-        characterList.add(new Character(3, "Zeus", new Position(2, "Mid")));
-        characterList.add(new Character(4, "Invoker", new Position(2, "Mid")));
-        characterList.add(new Character(5, "Axe", new Position(3, "Hard Line")));
-        characterList.add(new Character(6, "Legion Commander", new Position(3, "Hard Line")));
-        characterList.add(new Character(7, "Jakiro", new Position(4, "Support")));
-        characterList.add(new Character(8, "Ancient Apparition", new Position(4, "Support")));
-        characterList.add(new Character(9, "Crystal Maiden", new Position(5, "Line Support")));
-        characterList.add(new Character(10, "Witch Doctor", new Position(5, "Line Support")));
-        characterList.add(new Character(11, "Witch Doctor", new Position(6, "123")));
-
+        Position core = new Position(1, "Core");
+        Position mid = new Position(2, "Mid");
+        Position hardLine = new Position(3, "Hard Line");
+        Position support = new Position(4, "Support");
+        Position lineSupport = new Position(5, "Line Support");
+        characterList.add(new Character(1, "Phantom Assassin", core));
+        characterList.add(new Character(2, "Juggernaut", core));
+        characterList.add(new Character(3, "Zeus", mid));
+        characterList.add(new Character(4, "Invoker", mid));
+        characterList.add(new Character(5, "Axe", hardLine));
+        characterList.add(new Character(6, "Legion Commander", hardLine));
+        characterList.add(new Character(7, "Jakiro", support));
+        characterList.add(new Character(8, "Ancient Apparition", support));
+        characterList.add(new Character(9, "Crystal Maiden", lineSupport));
+        characterList.add(new Character(10, "Witch Doctor", lineSupport));
     }
 
     @Override
@@ -69,7 +74,7 @@ public class CharacterDaoImpl implements CharacterDao {
         for (Character character : characterList) {
             Position position = character.getPositionChar();
             int idPosition = position.getId();
-            if (character != null && !characterList.isEmpty() && idPosition == positionId){
+            if (character != null && !characterList.isEmpty() && idPosition == positionId) {
                 actualCharacters.add(character);
             }
         }
@@ -129,28 +134,31 @@ public class CharacterDaoImpl implements CharacterDao {
 
     //3. Cохранить персонажа в драфт.
     @Override
-    public boolean saveCharacterDraft(int idChar) {
-        for (Character character : characterList) {
-            int characters = character.getId();
-            int countChar = character.setCountCharacter(5);
-            // Проверяем, совпадает ли ID персонажа с переданным
-            if (character !=null && characters == idChar && countChar < 6) {
-                seveCharcterList.add(character);// Добавляем персонажа в список
-                System.out.println("Добавлен персонаж: " + character);
-            }
-        }
-        // Проверяем, были ли добавлены персонажи
-        if (!seveCharcterList.isEmpty()) {
-            System.out.println("Сохраненные персонажи: " + seveCharcterList);
-            return true; // Если хотя бы один персонаж был добавлен
-        }
-        return false; // Если ни один персонаж не был найден
+    public boolean saveCharacterDraft(int idCharacter) {
+          if (seveCharcterList.size() >= 5) {
+             System.out.println("Персонажа добавить нельзя, драфт переполнен");
+             return false;
+      }
+          if (characterList != null && !characterList.isEmpty()) {
+              for (Character character : characterList) {
+                  int characterId = character.getId();
+                  if (characterId == idCharacter) {
+                      Position position = character.getPositionChar();
+                      boolean isClosePosition = position.isClose();
+                      if (!isClosePosition && !seveCharcterList.contains(character)) {
+                          seveCharcterList.add(character);
+                          position.setClose(true);
+                          System.out.println("Добавлен персонаж: " + character);
+                          System.out.println("Сохраненные персонажи: " + seveCharcterList);
+                          return true;
+                      } else {
+                          System.out.println("Позиция уже занята для персонажа: " + character.getName());
+                          return false;
+                      }
+                  }
+              }
+          }
+        System.out.println("Персонаж с ID" + idCharacter + " не найден.");
+        return false;
     }
 }
-
-//выбираем героя в драфт:
-//Ищем по айди персонажа
-//Бежим по списку персонажей
-//И у каждого героя смотрим айди соответствует ли тому айди что передаем, если соответствует то смотрим его позицию занята ли она,
-//Если не занята и размер списка драфта <5 то меняем значение у close в позиции героя на нужное и добавляем героя в список драфта
-// если размер уже равен 5 то сообщение, что добавить нельзя
