@@ -18,7 +18,9 @@ public class CharatacterDaoTest {
         //saveCharDraftTest();
         //findCharacterByNameWdTest();
         //findCharactersDeleteByPositionTest();
-        saveCharacterDraftTest();
+        //saveCharacterDraftTest();
+        //saveCharacterDraftWhenIdIsNotExists();
+        saveCharacterDraftWhenPositionIsClose();
         //findCharacterByDraftTest();
 
     }
@@ -67,6 +69,19 @@ public class CharatacterDaoTest {
         CharacterDao characterDao = new CharacterDaoImpl();
         boolean character = characterDao.saveCharacterDraft(1);
         System.out.println(character);
+    }
+
+    public static void saveCharacterDraftWhenIdIsNotExists() {
+        CharacterDao characterDao = new CharacterDaoImpl();
+        boolean character = characterDao.saveCharacterDraft(0);
+        System.out.println(character);
+    }
+
+    public static void saveCharacterDraftWhenPositionIsClose() {
+        CharacterDao characterDao = new CharacterDaoImpl();
+        boolean character = characterDao.saveCharacterDraft(1);
+        boolean character1 = characterDao.saveCharacterDraft(2);
+        System.out.println(character1);
     }
 
     public static void findCharacterByDraftTest() {

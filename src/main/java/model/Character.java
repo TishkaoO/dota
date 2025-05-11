@@ -5,7 +5,7 @@ public class Character {
     private int id;
     private String name;
     private Position positionChar;
-    private int countCharacter = 1;
+    private int countCharacter = 0;
 
     public Character(int id, String name, Position positionChar, int countCharacter) {
         this.id = id;
@@ -19,7 +19,6 @@ public class Character {
         this.name = name;
         this.positionChar = positionChar;
     }
-
 
     public Character(String name, Position positionChar) {
         this.name = name;
@@ -54,11 +53,8 @@ public class Character {
         return countCharacter;
     }
 
-    public int setCountCharacter(int countCharacter) {
+    public void setCountCharacter(int countCharacter) {
         this.countCharacter = countCharacter;
-        for (int i = 1; i < 6; i++) {
-        }
-        return countCharacter;
     }
 
     public void setName(String name) {
@@ -75,12 +71,11 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", positionChar=" + positionChar +
-                ", countCharacter=" + countCharacter +
-                '}';
+        return "Character{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", positionChar=" + positionChar
+                + '}';
     }
 
     @Override
