@@ -16,12 +16,13 @@ public class CharatacterDaoTest {
         //findCharactersByPositionIdTest();
         //findCharactersByPositionTest();
         //saveCharDraftTest();
-        //findCharacterByNameWdTest();
-        //findCharactersDeleteByPositionTest();
-        //saveCharacterDraftTest();
+        saveCharacterDraftTest();
         //saveCharacterDraftWhenIdIsNotExists();
-        saveCharacterDraftWhenPositionIsClose();
+        //saveCharacterDraftWhenPositionIsClose();
         //findCharacterByDraftTest();
+        //findCaracterAspectDefaultTest();
+        //findCharacterInfoTest();
+        findCharacterAspectSwapTest();
 
     }
 
@@ -53,18 +54,6 @@ public class CharatacterDaoTest {
         System.out.println(character);
     }
 
-    public static void findCharacterByNameWdTest() {
-        CharacterDao characterDao = new CharacterDaoImpl();
-        Character character = characterDao.findCharacterByNameWd("Doctor");
-        System.out.println(character);
-    }
-
-    public static void findCharactersDeleteByPositionTest() {
-        CharacterDao characterDao = new CharacterDaoImpl();
-        List<Character> character = characterDao.findCharactersDeleteByPosition("mid");
-        System.out.println(character);
-    }
-
     public static void saveCharacterDraftTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
         boolean character = characterDao.saveCharacterDraft(1);
@@ -87,6 +76,24 @@ public class CharatacterDaoTest {
     public static void findCharacterByDraftTest() {
         CharacterDao characterDao = new CharacterDaoImpl();
         List<Character> character = characterDao.findCharacterByDraft();
+        System.out.println(character);
+    }
+
+    public static void findCaracterAspectDefaultTest() {
+        CharacterDao characterDao = new CharacterDaoImpl();
+        Character character = characterDao.findCaracterAspectDefault("Jakiro");
+        System.out.println(character);
+    }
+
+    public static void findCharacterInfoTest(){
+        CharacterDao characterDao = new CharacterDaoImpl();
+        Character character = characterDao.findCharacterInfo(1);
+        System.out.println(character);
+    }
+
+    public static void findCharacterAspectSwapTest(){
+        CharacterDao characterDao = new CharacterDaoImpl();
+        Character character = characterDao.findCharacterAspectSwap(1);
         System.out.println(character);
     }
 }
