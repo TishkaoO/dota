@@ -6,12 +6,14 @@ public class Character {
     private String name;
     private Position positionChar;
     private int countCharacter = 0;
+    private String aspect;
 
-    public Character(int id, String name, Position positionChar, int countCharacter) {
+    public Character(int id, String name, Position positionChar, int countCharacter, String aspect) {
         this.id = id;
         this.name = name;
         this.positionChar = positionChar;
         this.countCharacter = countCharacter;
+        this.aspect = aspect;
     }
 
     public Character(int id, String name, Position positionChar) {
@@ -25,9 +27,14 @@ public class Character {
         this.positionChar = positionChar;
     }
 
-    public Character(int id, String name) {
+    public Character(String name) {
+        this.name = name;
+    }
+
+    public Character(int id, String name, String aspect) {
         this.id = id;
         this.name = name;
+        this.aspect = aspect;
     }
 
     public Character(int countCharacter) {
@@ -69,13 +76,22 @@ public class Character {
         this.positionChar = positionChar;
     }
 
+    public String getAspect() {
+        return aspect;
+    }
+
+    public void setAspect(String aspect) {
+        this.aspect = aspect;
+    }
+
     @Override
     public String toString() {
-        return "Character{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", positionChar=" + positionChar
-                + '}';
+        return "Character{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", positionChar=" + positionChar +
+                ", aspect='" + aspect + '\'' +
+                '}';
     }
 
     @Override
