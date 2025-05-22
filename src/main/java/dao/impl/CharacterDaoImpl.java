@@ -6,14 +6,15 @@ import model.Position;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CharacterDaoImpl implements CharacterDao {
 
     private List<Character> characterList = new ArrayList<>();
     private List<Character> seveCharcterList = new ArrayList<>();
+    private List<Character> aspectCharacterList = new ArrayList<>();
+    private List<Character> defaultAspectCharacterList = new ArrayList<>();
+    private List<Character> infoCharacterList = new ArrayList<>();
 
     private int id = 0;
 
@@ -33,6 +34,19 @@ public class CharacterDaoImpl implements CharacterDao {
         characterList.add(new Character(8, "Ancient Apparition", support));
         characterList.add(new Character(9, "Crystal Maiden", lineSupport));
         characterList.add(new Character(10, "Witch Doctor", lineSupport));
+    }
+
+    {
+        defaultAspectCharacterList.add(new Character(1, "Phantom Assassin", "Methodical"));
+        defaultAspectCharacterList.add(new Character(2, "Juggernaut", "Bladestorm"));
+        defaultAspectCharacterList.add(new Character(3, "Zeus", "Livewire"));
+        defaultAspectCharacterList.add(new Character(4, "Invoker", "Scholar of Koryx"));
+        defaultAspectCharacterList.add(new Character(5, "Axe", "One Man Army"));
+        defaultAspectCharacterList.add(new Character(6, "Legion Commander", "Stonehall Plate"));
+        defaultAspectCharacterList.add(new Character(7, "Jakiro", "Twin Terror"));
+        defaultAspectCharacterList.add(new Character(8, "Ancient Apparition", "Bone Chill"));
+        defaultAspectCharacterList.add(new Character(9, "Crystal Maiden", "Glacial Guard"));
+        defaultAspectCharacterList.add(new Character(10, "Witch Doctor", "Headhunter"));
     }
 
     @Override
@@ -93,39 +107,6 @@ public class CharacterDaoImpl implements CharacterDao {
         return actualCharacter; // Возвращаем список найденных персонажей
     }
 
-    //написать метод, который будет из списака персонажей доставать вд с позицией 123
-    @Override
-    public Character findCharacterByNameWd(String name) {
-        for (Character character : characterList) {
-            String characterName = character.getName();
-            Position position = character.getPositionChar();
-            String characterPositionName = position.getName();
-            if (characterName.equals(name) && characterPositionName.equals("123")) {
-                return character;
-            }
-        }
-        System.out.println("Мы не нашли вашего персонажа :(");
-        return null;
-    }
-
-    // переименовать имя позиции на 123, но если позиция 123 уже есть то удаляем этого персонажа
-    // из списка и возвращаем остальное
-    @Override
-    public List<Character> findCharactersDeleteByPosition(String namePosition) {
-        List<Character> actualListCharacter = new ArrayList<>();
-        for (Character character : characterList) {
-            Position position = character.getPositionChar();
-            String charPosition = position.getName();
-            if (charPosition.equalsIgnoreCase(namePosition)) {
-                continue;
-            } else {
-                position.setName("123");
-                actualListCharacter.add(character);
-            }
-        }
-        return actualListCharacter;
-    }
-
     //4. Показать список персонажей в сформированном драфте.
     @Override
     public List<Character> findCharacterByDraft() {
@@ -143,13 +124,14 @@ public class CharacterDaoImpl implements CharacterDao {
               for (Character character : characterList) {
                   int characterId = character.getId();
                   if (characterId == idCharacter) {
+                      String nemeCharacter = character.getName();
                       Position position = character.getPositionChar();
                       boolean isClosePosition = position.isClose();
                       if (!isClosePosition && !seveCharcterList.contains(character)) {
                           seveCharcterList.add(character);
                           position.setClose(true);
-                          System.out.println("Добавлен персонаж: " + character);
-                          System.out.println("Сохраненные персонажи: " + seveCharcterList);
+                          System.out.println("Добавлен персонаж: " + character + findCaracterAspectDefault(nemeCharacter));
+                          System.out.println("Сохраненные персонажи: " + seveCharcterList + findCaracterAspectDefault(nemeCharacter));
                           return true;
                       } else {
                           System.out.println("Позиция уже занята для персонажа: " + character.getName());
@@ -160,5 +142,17 @@ public class CharacterDaoImpl implements CharacterDao {
           }
         System.out.println("Персонаж с ID" + idCharacter + " не найден.");
         return false;
+    }
+
+    @Override
+    public Character findCaracterAspectDefault(String name) {
+        for (Character character : defaultAspectCharacterList){
+            String nameCharacter = character.getName();
+            if (character != null && nameCharacter.equals(name)){
+                character.getAspect();
+                return character;
+            }
+        }
+        return null;
     }
 }
