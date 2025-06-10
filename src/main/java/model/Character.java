@@ -1,18 +1,15 @@
 package model;
 
+import java.util.List;
+
 public class Character {
 
     private int id;
     private String name;
     private Position positionChar;
-    private int countCharacter = 0;
-
-    public Character(int id, String name, Position positionChar, int countCharacter) {
-        this.id = id;
-        this.name = name;
-        this.positionChar = positionChar;
-        this.countCharacter = countCharacter;
-    }
+    private InformationCharacter informationCharacter;
+    private List<CharacterPumping> pumpingList;
+    //privet Map<>;
 
     public Character(int id, String name, Position positionChar) {
         this.id = id;
@@ -20,18 +17,23 @@ public class Character {
         this.positionChar = positionChar;
     }
 
-    public Character(String name, Position positionChar) {
-        this.name = name;
-        this.positionChar = positionChar;
-    }
-
-    public Character(int id, String name) {
+    public Character(int id, String name, Position positionChar, InformationCharacter informationCharacter, List<CharacterPumping> pumpingList) {
         this.id = id;
         this.name = name;
+        this.positionChar = positionChar;
+        this.informationCharacter = informationCharacter;
+        this.pumpingList = pumpingList;
     }
 
-    public Character(int countCharacter) {
-        this.countCharacter = countCharacter;
+    public Character(String name) {
+        this.name = name;
+    }
+
+    public Character(int id, String name, Position positionChar, InformationCharacter informationCharacter) {
+        this.id = id;
+        this.name = name;
+        this.positionChar = positionChar;
+        this.informationCharacter = informationCharacter;
     }
 
     public Character() {
@@ -49,14 +51,6 @@ public class Character {
         return name;
     }
 
-    public int getCountCharacter() {
-        return countCharacter;
-    }
-
-    public void setCountCharacter(int countCharacter) {
-        this.countCharacter = countCharacter;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -69,13 +63,31 @@ public class Character {
         this.positionChar = positionChar;
     }
 
+    public InformationCharacter getInformationCharacter() {
+        return informationCharacter;
+    }
+
+    public void setInformationCharacter(InformationCharacter informationCharacter) {
+        this.informationCharacter = informationCharacter;
+    }
+
+    public List<CharacterPumping> getPumpingList() {
+        return pumpingList;
+    }
+
+    public void setPumpingList(List<CharacterPumping> pumpingList) {
+        this.pumpingList = pumpingList;
+    }
+
     @Override
     public String toString() {
-        return "Character{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", positionChar=" + positionChar
-                + '}';
+        return "Character{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", positionChar=" + positionChar +
+                ", informationCharacter=" + informationCharacter +
+                ", pumpingList=" + pumpingList +
+                '}';
     }
 
     @Override
