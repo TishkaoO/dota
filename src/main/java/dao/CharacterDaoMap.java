@@ -1,32 +1,38 @@
 package dao;
 
 import model.Character;
+import model.CharacterPumping;
 import model.Position;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface CharacterDaoMap {
 
-    Map<Integer, Character> findCharacterByPositionId(int positionId);
+   Character findCharacterByPositionId(int positionId);
 
-    Map<Integer, Character> findCharacterById(int id);
+    Character findCharacterById(int id);
 
-    Map<Integer, Character> deleteCharacterById(int id);
+    boolean deleteCharacterById(int keyId);
 
-    Map<Integer, Character> findDistinctCharacter (Map<Integer, Character> characterDublue);
+    List <Character> findDistinctAllCharacter (Map<Integer, Character> characterDublue);
 
-    Map<Integer, Character> addCharacter (String name, String namePosition);
+    Character addCharacter (String name, String namePosition);
 
-    Map<Integer, Character> editCharacter (int id, String nameCharacter, String namePosition);
+    Character editCharacter (int id, String nameCharacter, String namePosition);
 
-    Map<Integer, Character> findAllCharacterMap ();
+    List<Character> findAllCharacterMap ();
 
-    Map<Integer, Character> findCharacterByNameMap (String name);
+    Character findCharacterByNameMap (String name);
 
     Character findCharacterByPositionNameMap (String name);
 
-    Map<Integer, Character> findCharacterByDraft();
+    List<Character> findCharacterByDraft();
 
     boolean saveCharacterDraftMap(int idCharacter);
+
+    Character findCharacterInfoMap(int idCharacter);
+
+    List<CharacterPumping> findInfoCharacterSkills(String name);
 }

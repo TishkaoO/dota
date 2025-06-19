@@ -1,6 +1,7 @@
 package test;
 
 import dao.CharacterDaoMap;
+import dao.map.CharacterMap;
 import model.Character;
 import model.CharacterPumping;
 
@@ -10,12 +11,12 @@ import java.util.Map;
 public class CharacterDaoMapTest {
     public static void main(String[] args) {
 
-        //findCharacterByPositionIdTest();
+        findCharacterByPositionIdTest();
     }
 
     public static void findCharacterByPositionIdTest() {
         CharacterDaoMap characterDaoMap = new CharacterMap();
-        Map<Integer, Character> character = characterDaoMap.findCharacterByPositionId(1);
+        Character character = characterDaoMap.findCharacterByPositionId(1);
         System.out.println(character);
     }
 }
