@@ -25,7 +25,7 @@ public class ItemDaoImpl implements ItemDao {
     private Map<String, List<Item>> itemMapAncientApparition = new HashMap<>();
     private Map<String, List<Item>> itemMapCrystalMaiden = new HashMap<>();
     private Map<String, List<Item>> itemMapWitchDoctor = new HashMap<>();
-    private Map <Integer , Map<String, List<Item>>> nazvanie1 = new HashMap<>();
+    private Map<Integer, Map<String, List<Item>>> nazvanie1 = new HashMap<>();
 
     private int id = 0;
 
@@ -259,7 +259,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public List<Item> findItemCharacter(String name) {// не смог проверить
+    public List<Item> findItemCharacter(String name) {
         if (itemMap == null || itemMap.isEmpty()) {
             System.out.println("Список пуст!");
             return null;

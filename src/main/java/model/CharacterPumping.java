@@ -8,7 +8,7 @@ public class CharacterPumping {
     int lvel;
     Skill skills;
 
-    public CharacterPumping( int lvel, Skill skills) {
+    public CharacterPumping(int lvel, Skill skills) {
         this.lvel = lvel;
         this.skills = skills;
     }
@@ -31,16 +31,20 @@ public class CharacterPumping {
 
     @Override
     public String toString() {
-        return "CharacterPumping{" +
-                ", lvel=" + lvel +
-                ", skills=" + skills +
-                '}';
+        return "CharacterPumping{"
+                + ", lvel=" + lvel
+                + ", skills=" + skills
+                + '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         CharacterPumping that = (CharacterPumping) o;
         return lvel == that.lvel && Objects.equals(skills, that.skills);
     }

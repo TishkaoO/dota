@@ -27,7 +27,7 @@ public interface CharacterDao {
 
     Character findCharacterAspectSwap(int idCharacter, String nameAspect);
 
-    List <CharacterPumping> findInfoCharacterSkills(String name);
+    List<CharacterPumping> findInfoCharacterSkills(String name);
 }
 /**1. Предоставить список свободных позиций. findPositionFreeTest();
 2. Найти персонажей по айди позиции. findCharactersByPositionIdTest();
@@ -69,5 +69,5 @@ public interface CharacterDao {
  получение списка (возвращать лист) но доставать из хешмепа
  передаем позицию и получаем соответсветсвующих персов +
 
- переделать реализацию из наших методов на хеш меп
+ переделать реализацию из наших методов на хеш меп +
  */
