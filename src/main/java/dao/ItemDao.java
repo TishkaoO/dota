@@ -8,6 +8,6 @@ import java.util.Map;
 
 public interface ItemDao {
 
-    List<Item> findItemCharacter (String name);
+    List<Item> findItemCharacter(String name);
 
 }

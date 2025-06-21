@@ -81,13 +81,14 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", positionChar=" + positionChar +
-                ", informationCharacter=" + informationCharacter +
-                ", pumpingList=" + pumpingList +
-                '}';
+        return "Character{"
+                + "id=" + id
+                + ", name='" + name
+                + '\''
+                + ", positionChar=" + positionChar
+                + ", informationCharacter=" + informationCharacter
+                + ", pumpingList=" + pumpingList
+                + '}';
     }
 
     @Override

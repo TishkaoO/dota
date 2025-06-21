@@ -24,7 +24,20 @@ public class CharacterMap implements CharacterDaoMap {
         aspectsListPhantomAssassin.add(aspectSweetRelease);
         Сharacteristic сharacteristicPhantomAssassin = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoPhantomAssassin = new InformationCharacter("Физический урон", aspectsListPhantomAssassin, сharacteristicPhantomAssassin);
-        Character phantomAssasin = new Character(1, "Phantom Assassin", core, infoPhantomAssassin);
+        Skill stiflingDagger = new Skill("Stifling Dagger");
+        Skill phantomStrike = new Skill("Phantom Strike");
+        Skill blur = new Skill("Blur");
+        Skill coupDeGrace = new Skill("Coup de Grace");
+        CharacterPumping firstLevelPhantomAssassin = new CharacterPumping(1, stiflingDagger);
+        CharacterPumping secondLevelPhantomAssassin = new CharacterPumping(2, phantomStrike);
+        CharacterPumping fifthLevelPhantomAssassin = new CharacterPumping(5, blur);
+        CharacterPumping sixthLevelPhantomAssassin = new CharacterPumping(6, coupDeGrace);
+        List<CharacterPumping> pumpingListPhantomAssassin = new ArrayList<>();
+        pumpingListPhantomAssassin.add(firstLevelPhantomAssassin);
+        pumpingListPhantomAssassin.add(secondLevelPhantomAssassin);
+        pumpingListPhantomAssassin.add(fifthLevelPhantomAssassin);
+        pumpingListPhantomAssassin.add(sixthLevelPhantomAssassin);
+        Character phantomAssasin = new Character(1, "Phantom Assassin", core, infoPhantomAssassin, pumpingListPhantomAssassin);
 
         Aspect aspectBladestorm = new Aspect("Bladestorm", true);
         Aspect aspectBladeform = new Aspect("Bladeform", false);
@@ -33,7 +46,20 @@ public class CharacterMap implements CharacterDaoMap {
         aspectListJuggernaut.add(aspectBladeform);
         Сharacteristic сharacteristicJuggernaut = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoJuggernaut = new InformationCharacter("Физический урон", aspectListJuggernaut, сharacteristicJuggernaut);
-        Character juggernaut = new Character(2, "Juggernaut", core, infoJuggernaut);
+        Skill bladeFury = new Skill("Blade Fury");
+        Skill healingWard = new Skill("Healing Ward");
+        Skill bladeDance = new Skill("Blade Dance");
+        Skill omnislash = new Skill("Omnislash");
+        CharacterPumping firstLevelJuggernaut = new CharacterPumping(1, bladeFury);
+        CharacterPumping secondLevelJuggernaut = new CharacterPumping(2, bladeDance);
+        CharacterPumping fifthLevelJuggernaut = new CharacterPumping(5, healingWard);
+        CharacterPumping sixthLevelJuggernaut = new CharacterPumping(6, omnislash);
+        List<CharacterPumping> pumpingListJuggernautn = new ArrayList<>();
+        pumpingListJuggernautn.add(firstLevelJuggernaut);
+        pumpingListJuggernautn.add(secondLevelJuggernaut);
+        pumpingListJuggernautn.add(fifthLevelJuggernaut);
+        pumpingListJuggernautn.add(sixthLevelJuggernaut);
+        Character juggernaut = new Character(2, "Juggernaut", core, infoJuggernaut, pumpingListJuggernautn);
 
         characterMap.put(phantomAssasin.getId(), phantomAssasin);
         characterMap.put(juggernaut.getId(), juggernaut);
@@ -104,9 +130,10 @@ public class CharacterMap implements CharacterDaoMap {
     }
 
     @Override
-    public List <Character> findDistinctAllCharacter(Map<Integer, Character> characterDublue) { //character
-        if (characterDublue == null || characterDublue.isEmpty()) { // проверка на null
+    public List<Character> findDistinctAllCharacter(Map<Integer, Character> characterDublue) { //character
+        if (characterDublue != null && characterDublue.isEmpty()) { // проверка на null
             System.out.println("Список персонажей пуст!");
+            return new ArrayList<>();
         }
         Map<Integer, Character> distinctCharacter = new HashMap<>(); // создаем новый map и set для добавления найденных значений
         Set<Character> seenChatacter = new HashSet<>();
@@ -117,13 +144,13 @@ public class CharacterMap implements CharacterDaoMap {
                 distinctCharacter.put(entry.getKey(), character); // получить ключ и добавить значения по условию
             }
             List<Character> distinctCharacterList = new ArrayList<>();
-            for (Map.Entry<Integer, Character> distinctCharacterMap : distinctCharacter.entrySet()){
+            for (Map.Entry<Integer, Character> distinctCharacterMap : distinctCharacter.entrySet()) {
                 Character characterDistinct = distinctCharacterMap.getValue();
                 distinctCharacterList.add(characterDistinct);
             }
             return distinctCharacterList;
         }
-        return null;
+        return new ArrayList<>();
     }
 
     private int currentId = 10;
@@ -156,7 +183,7 @@ public class CharacterMap implements CharacterDaoMap {
 
     @Override
     public Character editCharacter(int id, String nameCharacter, String namePosition) { //character
-        if (characterMap == null || characterMap.isEmpty()) {
+        if (characterMap != null && characterMap.isEmpty()) {
             System.out.println("Список персонажей пуст!");
             return null;
         }
@@ -187,12 +214,12 @@ public class CharacterMap implements CharacterDaoMap {
 
     @Override
     public List<Character> findAllCharacterMap() { //list
-        if (characterMap == null || characterMap.isEmpty()) {
+        if (characterMap != null && characterMap.isEmpty()) {
             System.out.println("Список персонажей пуст!");
-            return null;
+            return new ArrayList<>();
         }
         List<Character> allCharacterList = new ArrayList<>();
-        for (Map.Entry<Integer, Character> mapCharacter : characterMap.entrySet()){
+        for (Map.Entry<Integer, Character> mapCharacter : characterMap.entrySet()) {
             Character character = mapCharacter.getValue();
             allCharacterList.add(character);
         }
@@ -201,7 +228,7 @@ public class CharacterMap implements CharacterDaoMap {
 
     @Override
     public Character findCharacterByNameMap(String name) { //character
-        if (characterMap == null || characterMap.isEmpty()) {
+        if (characterMap != null && characterMap.isEmpty()) {
             System.out.println("Список персонажей пуст!");
             return null;
         }
@@ -218,7 +245,7 @@ public class CharacterMap implements CharacterDaoMap {
 
     @Override
     public Character findCharacterByPositionNameMap(String name) {
-        if (characterMap == null || characterMap.isEmpty()) {
+        if (characterMap != null && characterMap.isEmpty()) {
             System.out.println("Список персонажей пуст!");
             return null;
         }
@@ -236,12 +263,12 @@ public class CharacterMap implements CharacterDaoMap {
 
     @Override
     public List<Character> findCharacterByDraft() { //list
-        if (characterDraftMap == null || characterDraftMap.isEmpty()) {
+        if (characterDraftMap != null && characterDraftMap.isEmpty()) {
             System.out.println("Драфт пуст!");
-            return null;
+            return new ArrayList<>();
         }
         List<Character> characterDraftList = new ArrayList<>();
-        for (Map.Entry<Integer, Character> mapCharacter : characterDraftMap.entrySet()){
+        for (Map.Entry<Integer, Character> mapCharacter : characterDraftMap.entrySet()) {
             Character character = mapCharacter.getValue();
             characterDraftList.add(character);
         }
@@ -254,7 +281,7 @@ public class CharacterMap implements CharacterDaoMap {
             System.out.println("Персонажа добавить нельзя, драфт переполнен");
             return false;
         }
-        if (characterMap == null || characterMap.isEmpty()) {
+        if (characterMap != null && characterMap.isEmpty()) {
             System.out.println("Список персонажей пуст!");
             return false;
         }
@@ -294,21 +321,21 @@ public class CharacterMap implements CharacterDaoMap {
 
     @Override
     public Character findCharacterInfoMap(int idCharacter) {
-        if (characterDraftMap == null || characterDraftMap.isEmpty()) {
+        if (characterDraftMap != null && characterDraftMap.isEmpty()) {
             System.out.println("Драфт пуст!");
             return null;
         }
-     for (Map.Entry<Integer, Character> mapCharacterDraft : characterDraftMap.entrySet()){
-         Character character = mapCharacterDraft.getValue();
-         int characterId = character.getId();
-         if (characterId == idCharacter){
-             InformationCharacter infoCharacter = character.getInformationCharacter();
-             Сharacteristic сharacteristic = infoCharacter.getСharacteristics();
-             System.out.println(сharacteristic);
-             return character;
-             }
-             System.out.println("Данного персонажа нет в драфте, получении информации не возможно!");
-             return null;
+        for (Map.Entry<Integer, Character> mapCharacterDraft : characterDraftMap.entrySet()) {
+            Character character = mapCharacterDraft.getValue();
+            int characterId = character.getId();
+            if (characterId == idCharacter) {
+                InformationCharacter infoCharacter = character.getInformationCharacter();
+                Сharacteristic сharacteristic = infoCharacter.getСharacteristics();
+                System.out.println(сharacteristic);
+                return character;
+            }
+            System.out.println("Данного персонажа нет в драфте, получении информации не возможно!");
+            return null;
         }
         System.out.println("Персонаж с таким ID не найден");
         return null;
@@ -316,6 +343,74 @@ public class CharacterMap implements CharacterDaoMap {
 
     @Override
     public List<CharacterPumping> findInfoCharacterSkills(String name) {
+        if (characterMap != null && characterMap.isEmpty()) {
+            System.out.println("Список персонажей пуст");
+            return new ArrayList<>();
+        }
+        for (Map.Entry<Integer, Character> mapCharacter : characterMap.entrySet()) {
+            Character character = mapCharacter.getValue();
+            String characterName = character.getName();
+            if (characterName.equalsIgnoreCase(name)) {
+                List<CharacterPumping> pumpingHero = character.getPumpingList();
+                System.out.println(characterName);
+                return pumpingHero;
+            }
+        }
+        return new ArrayList<>();
+    }
 
+    @Override
+    public Character findCharacterAspectSwapMap(int idCharacter, String nameAspect) {
+        if (characterDraftMap != null && characterDraftMap.isEmpty()) {
+            System.out.println("Драфт пустой");
+            return null;
+        }
+        if (characterMap != null && characterMap.isEmpty()) {
+            System.out.println("Список пересонажей пуст");
+            return null;
+        }
+        Character draftCharacter = null;
+        for (Map.Entry<Integer, Character> mapCharacterDraft : characterDraftMap.entrySet()) {
+            Character character = mapCharacterDraft.getValue();
+            int characterId = character.getId();
+            if (character != null && characterId == idCharacter) {
+                draftCharacter = character;
+                return draftCharacter;
+            }
+        }
+        if (draftCharacter == null) {
+            System.out.println("Персонаж с таким ID не найден");
+            return null;
+        }
+        InformationCharacter infoCharacterDraft = draftCharacter.getInformationCharacter();
+        List<Aspect> aspectsDraft = infoCharacterDraft.getAspects();
+        Aspect aspectInDraft;
+        for (Aspect aspectDraft : aspectsDraft) {
+            aspectInDraft = aspectDraft;
+            if (aspectDraft != null && aspectDraft.getName().equalsIgnoreCase(nameAspect)) {
+                System.out.println("Аспекты совпадают, замена не требуется");
+                break;
+            }
+            for (Map.Entry<Integer, Character> mapCharacter : characterMap.entrySet()) {
+                Character character = mapCharacter.getValue();
+                if (character != null && character.getId() == idCharacter) {
+                    InformationCharacter informationCharacter = character.getInformationCharacter();
+                    List<Aspect> aspectListCharacter = informationCharacter.getAspects();
+                    Aspect aspectCharacter;
+                    for (int i = 0; i < aspectListCharacter.size(); i++) {
+                        aspectCharacter = aspectListCharacter.get(i);
+                        if (aspectCharacter != null && aspectCharacter.getName().equalsIgnoreCase(nameAspect)) {
+                            aspectInDraft.setName(nameAspect);
+                            System.out.println("Аспект успешно заменен на: " + nameAspect);
+                            return draftCharacter;
+                        }
+                        if (!nameAspect.contains(aspectCharacter.getName())) {
+                            System.out.println("Подходящий аспект для замены найден");
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

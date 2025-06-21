@@ -31,7 +31,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectsListPhantomAssassin = new ArrayList<>();
         aspectsListPhantomAssassin.add(aspectMetodical);
         aspectsListPhantomAssassin.add(aspectSweetRelease);
-        Сharacteristic сharacteristicPhantomAssassin = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicPhantomAssassin = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoPhantomAssassin = new InformationCharacter("Физический урон", aspectsListPhantomAssassin, сharacteristicPhantomAssassin);
         Skill stiflingDagger = new Skill("Stifling Dagger");
         Skill phantomStrike = new Skill("Phantom Strike");
@@ -52,7 +52,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListJuggernaut = new ArrayList<>();
         aspectListJuggernaut.add(aspectBladestorm);
         aspectListJuggernaut.add(aspectBladeform);
-        Сharacteristic сharacteristicJuggernaut = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicJuggernaut = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoJuggernaut = new InformationCharacter("Физический урон", aspectListJuggernaut, сharacteristicJuggernaut);
         Skill bladeFury = new Skill("Blade Fury");
         Skill healingWard = new Skill("Healing Ward");
@@ -73,7 +73,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListZeus = new ArrayList<>();
         aspectListZeus.add(aspectLivewire);
         aspectListZeus.add(aspectDivineRampage);
-        Сharacteristic сharacteristicZeus = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicZeus = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoZeus = new InformationCharacter("Магический урон", aspectListZeus, сharacteristicZeus);
         Skill arcLightning = new Skill("Arc Lightning");
         Skill lightningBolt = new Skill("Lightning Bolt");
@@ -96,7 +96,7 @@ public class CharacterDaoImpl implements CharacterDao {
         aspectListInvoker.add(aspectScholarOfKoryx);
         aspectListInvoker.add(aspectMindOfTornarus);
         aspectListInvoker.add(aspectAgentOfGallaron);
-        Сharacteristic сharacteristicInvoker = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicInvoker = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoInvoker = new InformationCharacter("Магический урон", aspectListInvoker, сharacteristicInvoker);
         Skill quas = new Skill("Quas");
         Skill wex = new Skill("Wex");
@@ -117,7 +117,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListAxe = new ArrayList<>();
         aspectListAxe.add(aspectOneManArmy);
         aspectListAxe.add(aspectCallOut);
-        Сharacteristic сharacteristicAxe = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicAxe = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoAxe = new InformationCharacter("Физический урон", aspectListAxe, сharacteristicAxe);
         Skill berserkersCall = new Skill("Berserker's Call");
         Skill battleHunger = new Skill("Battle Hunger");
@@ -138,7 +138,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListLegionCommander = new ArrayList<>();
         aspectListLegionCommander.add(aspectStonehallPlate);
         aspectListLegionCommander.add(aspectSpoilsOfWar);
-        Сharacteristic сharacteristicLegionCommander = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicLegionCommander = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoLegionCommander = new InformationCharacter("Физический урон", aspectListLegionCommander, сharacteristicLegionCommander);
         Skill overwhelmingOdds = new Skill("Overwhelming Odds");
         Skill pressTheAttack = new Skill("Press The Attack");
@@ -159,7 +159,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListJakiro = new ArrayList<>();
         aspectListJakiro.add(aspectTwinTerror);
         aspectListJakiro.add(aspectIceBreaker);
-        Сharacteristic сharacteristicJakiro = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicJakiro = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoJakiro = new InformationCharacter("Магический урон", aspectListJakiro, сharacteristicJakiro);
         Skill dualBreath = new Skill("Dual Breath");
         Skill icePath = new Skill("Ice Path");
@@ -180,7 +180,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListAncientApparition = new ArrayList<>();
         aspectListAncientApparition.add(aspectBoneChill);
         aspectListAncientApparition.add(aspectExposure);
-        Сharacteristic сharacteristicAncientApparition = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicAncientApparition = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoAncientApparition = new InformationCharacter("Магический урон", aspectListAncientApparition, сharacteristicAncientApparition);
         Skill coldFeet = new Skill("Cold Feet");
         Skill iceVortex = new Skill("Ice Vortex");
@@ -201,7 +201,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListCrystalMaiden = new ArrayList<>();
         aspectListCrystalMaiden.add(aspectGlacialGuard);
         aspectListCrystalMaiden.add(aspectArcaneOverflow);
-        Сharacteristic сharacteristicCrystalMaiden = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicCrystalMaiden = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoCrystalMaiden = new InformationCharacter("Магический урон", aspectListCrystalMaiden, сharacteristicCrystalMaiden);
         Skill crystalNova = new Skill("Crystal Nova");
         Skill frostbite = new Skill("Frostbite");
@@ -222,7 +222,7 @@ public class CharacterDaoImpl implements CharacterDao {
         List<Aspect> aspectListWitchDoctor = new ArrayList<>();
         aspectListWitchDoctor.add(aspectHeadhunter);
         aspectListWitchDoctor.add(aspectCleftDeath);
-        Сharacteristic сharacteristicWitchDoctor = new Сharacteristic (1, 2, 3, 4, 5);
+        Сharacteristic сharacteristicWitchDoctor = new Сharacteristic(1, 2, 3, 4, 5);
         InformationCharacter infoWitchDoctor = new InformationCharacter("Магический урон", aspectListWitchDoctor, сharacteristicWitchDoctor);
         Skill paralyzingCask = new Skill("Paralyzing Cask");
         Skill voodooRestoration = new Skill("Voodoo Restoration");
@@ -333,12 +333,12 @@ public class CharacterDaoImpl implements CharacterDao {
                       InformationCharacter aspect = character.getInformationCharacter();
                       List<Aspect> aspects = aspect.getAspects();
                       List<Aspect> defaultAspect = new ArrayList<>();
-                      for (Aspect aspectDefault : aspects){
+                      for (Aspect aspectDefault : aspects) {
                           boolean isDefaultAspect = aspectDefault.isDefaultAspect();
-                          if (isDefaultAspect){
+                          if (isDefaultAspect) {
                               defaultAspect.add(aspectDefault);
                           }
-                          if (!isClosePosition){
+                          if (!isClosePosition) {
                               defaultAspect.remove(aspectDefault);
                           }
                       }
@@ -361,7 +361,7 @@ public class CharacterDaoImpl implements CharacterDao {
 
     @Override
     public Character findCharacterInfo(int idCharacter) {
-        if (seveCharcterList == null || seveCharcterList.isEmpty()) {
+        if (seveCharcterList != null && seveCharcterList.isEmpty()) {
             System.out.println("Драфт персонажей пуст");
             return null;
         }
@@ -387,11 +387,11 @@ public class CharacterDaoImpl implements CharacterDao {
 
     @Override
     public Character findCharacterAspectSwap(int idCharacter, String nameAspect) { //как проверить?
-        if (seveCharcterList == null && seveCharcterList.isEmpty()) {
+        if (seveCharcterList != null && seveCharcterList.isEmpty()) {
             System.out.println("Драфт пустой");
             return null;
         }
-        if (characterList == null && characterList.isEmpty()) {
+        if (characterList != null && characterList.isEmpty()) {
             System.out.println("Список пересонажей пуст");
             return null;
         }
@@ -400,7 +400,7 @@ public class CharacterDaoImpl implements CharacterDao {
             int characterId = character.getId();
             if (character != null && characterId == idCharacter) {
                 draftCharacter = character;
-                break;
+                return draftCharacter;
             }
         }
         if (draftCharacter == null) {
@@ -409,7 +409,7 @@ public class CharacterDaoImpl implements CharacterDao {
         }
         InformationCharacter infoCharacterDraft = draftCharacter.getInformationCharacter();
         List<Aspect> aspectsDraft = infoCharacterDraft.getAspects();
-        Aspect aspectInDraft = null;
+        Aspect aspectInDraft;
             for (Aspect aspectDraft : aspectsDraft) {
                 aspectInDraft = aspectDraft;
                 if (aspectDraft != null && aspectDraft.getName().equalsIgnoreCase(nameAspect)) {
@@ -420,7 +420,7 @@ public class CharacterDaoImpl implements CharacterDao {
                     if (character != null && character.getId() == idCharacter) {
                         InformationCharacter informationCharacter = character.getInformationCharacter();
                         List<Aspect> aspectListCharacter = informationCharacter.getAspects();
-                        Aspect aspectCharacter = null;
+                        Aspect aspectCharacter;
                         for (int i = 0; i < aspectListCharacter.size(); i++) {
                             aspectCharacter = aspectListCharacter.get(i);
                             if (aspectCharacter != null && aspectCharacter.getName().equalsIgnoreCase(nameAspect)) {
@@ -428,11 +428,13 @@ public class CharacterDaoImpl implements CharacterDao {
                                 System.out.println("Аспект успешно заменен на: " + nameAspect);
                                 return draftCharacter;
                         }
+                            if (!nameAspect.contains(aspectCharacter.getName())) {
+                                System.out.println("Подходящий аспект для замены найден");
+                            }
                     }
                 }
             }
         }
-        System.out.println("Подходящий аспект для замены найден");
         return null;
     }
     //переделать метод замены аспекта, принимаем 2 аргумента, id персонажа и id аспекта, и если аспекты равны то игнорируем замену, но
@@ -440,9 +442,9 @@ public class CharacterDaoImpl implements CharacterDao {
 
     @Override
     public List<CharacterPumping> findInfoCharacterSkills(String name) {
-        if (characterList == null || characterList.isEmpty()) {
+        if (characterList != null && characterList.isEmpty()) {
             System.out.println("Список персонажей пуст");
-            return null;
+            return new ArrayList<>();
         }
         for (Character character : characterList) {
             String characterName = character.getName();
@@ -452,6 +454,6 @@ public class CharacterDaoImpl implements CharacterDao {
                return pumpingHero;
             }
         }
-        return null;
+        return new ArrayList<>();
     }
 }

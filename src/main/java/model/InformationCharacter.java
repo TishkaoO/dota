@@ -40,10 +40,11 @@ public class InformationCharacter {
 
     @Override
     public String toString() {
-        return "InformationCharacter{" +
-                "typeAttack='" + typeAttack + '\'' +
-                ", aspects=" + aspects +
-                ", Сharacteristics=" + Сharacteristics +
-                '}';
+        return "InformationCharacter{"
+                + "typeAttack='" + typeAttack
+                + '\''
+                + ", aspects=" + aspects
+                + ", Сharacteristics=" + Сharacteristics
+                + '}';
     }
 }

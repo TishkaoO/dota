@@ -16,17 +16,17 @@ public interface CharacterDaoMap {
 
     boolean deleteCharacterById(int keyId);
 
-    List <Character> findDistinctAllCharacter (Map<Integer, Character> characterDublue);
+    List<Character> findDistinctAllCharacter(Map<Integer, Character> characterDublue);
 
-    Character addCharacter (String name, String namePosition);
+    Character addCharacter(String name, String namePosition);
 
-    Character editCharacter (int id, String nameCharacter, String namePosition);
+    Character editCharacter(int id, String nameCharacter, String namePosition);
 
-    List<Character> findAllCharacterMap ();
+    List<Character> findAllCharacterMap();
 
-    Character findCharacterByNameMap (String name);
+    Character findCharacterByNameMap(String name);
 
-    Character findCharacterByPositionNameMap (String name);
+    Character findCharacterByPositionNameMap(String name);
 
     List<Character> findCharacterByDraft();
 
@@ -35,4 +35,6 @@ public interface CharacterDaoMap {
     Character findCharacterInfoMap(int idCharacter);
 
     List<CharacterPumping> findInfoCharacterSkills(String name);
+
+    Character findCharacterAspectSwapMap(int idCharacter, String nameAspect);
 }
